@@ -1,4 +1,27 @@
-node_modules/
-dist/
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Production Build
+dist
+dist-ssr
+
+# Environment Variables
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel
+.vercel
+
+# Editor/OS directories
 .DS_Store
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
