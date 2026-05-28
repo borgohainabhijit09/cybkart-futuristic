@@ -1,0 +1,426 @@
+/* ==========================================================================
+   CYBKART GLOBAL - DESIGN SYSTEM & GLOBAL STYLES (main.css) - LIGHT LUXURY
+   ========================================================================== */
+
+:root {
+  /* Luxury Futuristic Light Color Palette */
+  --color-bg-base: #fffbf5;         /* Cream luxury base */
+  --color-bg-panel: rgba(255, 255, 255, 0.7); /* Translucent light glass card */
+  --color-purple: #008cff;          /* Brand Electric Cyber Blue */
+  --color-purple-rgb: 0, 140, 255;
+  --color-indigo: #0b0f19;          /* Deep luxury navy as background CTA / headers */
+  --color-indigo-rgb: 11, 15, 25;
+  --color-cyan: #00bfff;            /* Accents */
+  --color-cyan-rgb: 0, 191, 255;
+  --color-emerald: #10b981;
+  
+  --color-text-primary: #090b14;    /* Dark text for light backgrounds */
+  --color-text-secondary: #475569;  /* Balanced gray for secondary text */
+  --color-text-muted: #7c8ba1;      /* Muted gray */
+  
+  /* Precision Glassmorphism and Glow Tokens */
+  --glass-border: rgba(9, 11, 20, 0.05);
+  --glass-border-glow: rgba(0, 140, 255, 0.15);
+  --glass-shadow: 0 30px 60px rgba(9, 11, 20, 0.03);
+  --glass-blur: blur(20px) saturate(180%);
+  
+  /* Fonts */
+  --font-primary: 'Outfit', sans-serif;
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  
+  /* Transitions */
+  --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-cinematic: all 1.2s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+/* Base Reset & Configuration */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: initial; /* Lenis overrides scrolling */
+  overflow-x: hidden;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-primary);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+}
+
+/* Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(79, 70, 229, 0.1);
+  border: 2px solid var(--color-bg-base);
+  border-radius: 10px;
+  transition: var(--transition-fast);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(79, 70, 229, 0.25);
+}
+
+/* Typography Rules */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--color-text-primary) !important;
+}
+
+p {
+  color: var(--color-text-secondary) !important;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-fast);
+}
+
+/* Global Container Layout */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+@media (max-width: 576px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+}
+
+/* Premium Dynamic Gradients */
+.gradient-text,
+.gradient-text .word,
+.gradient-text .char {
+  background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-cyan) 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  display: inline-block !important;
+}
+
+/* Glassmorphism Card System */
+.glass-card {
+  background: var(--color-bg-panel);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-radius: 24px;
+  box-shadow: var(--glass-shadow);
+  transition: var(--transition-smooth);
+}
+
+.glass-card:hover {
+  border-color: var(--glass-border-glow);
+  box-shadow: 0 30px 60px rgba(79, 70, 229, 0.08);
+}
+
+/* Primary Button Styling */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem 2.4rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, var(--color-indigo), var(--color-purple));
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.2);
+  transition: var(--transition-smooth);
+}
+
+.btn-primary .btn-txt {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-primary .btn-slide-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-cyan), var(--color-indigo));
+  opacity: 0;
+  z-index: 1;
+  transition: var(--transition-smooth);
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(8, 145, 178, 0.25);
+  border-color: rgba(8, 145, 178, 0.3);
+}
+
+.btn-primary:hover .btn-slide-bg {
+  opacity: 1;
+}
+
+/* Secondary Uppercase Link Button Style */
+.btn-secondary-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem 1.8rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-secondary);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-secondary-link::after {
+  content: '';
+  position: absolute;
+  bottom: 12px;
+  left: 1.8rem;
+  width: calc(100% - 3.6rem);
+  height: 1px;
+  background-color: rgba(9, 11, 20, 0.2);
+  transition: var(--transition-fast);
+}
+
+.btn-secondary-link:hover {
+  color: var(--color-text-primary);
+  transform: translateY(-2px);
+}
+
+.btn-secondary-link:hover::after {
+  background-color: var(--color-text-primary);
+  width: 100%;
+  left: 0;
+}
+
+/* Global Glowing Background Canvas & Moving Texture */
+.global-bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  background-color: var(--color-bg-base);
+  overflow: hidden;
+}
+
+/* Futuristic Cyber Grid Texture */
+.mesh-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  background-position: center;
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.1) 80%);
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.1) 80%);
+  opacity: 0.6;
+}
+
+/* Complex Layered Gradient Mesh Backdrop */
+.radial-mesh-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 15% 25%, rgba(255, 218, 185, 0.35) 0%, transparent 60%),
+              radial-gradient(circle at 85% 75%, rgba(253, 235, 211, 0.4) 0%, transparent 60%);
+  opacity: 0.9;
+}
+
+/* Floating Glow Orbs (Subtle high-end animations) */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.15;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.orb-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 203, 164, 0.25) 0%, rgba(255, 251, 245, 0.05) 100%);
+  top: -100px;
+  right: -100px;
+  animation: floatOrb1 20s infinite ease-in-out alternate;
+}
+
+.orb-2 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(253, 222, 189, 0.25) 0%, rgba(255, 251, 245, 0.05) 100%);
+  bottom: -200px;
+  left: -200px;
+  animation: floatOrb2 25s infinite ease-in-out alternate;
+}
+
+.orb-3 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 218, 185, 0.15) 0%, rgba(255, 251, 245, 0.03) 100%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.1;
+}
+
+@keyframes floatOrb1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(-100px, 100px) scale(1.15);
+  }
+}
+
+@keyframes floatOrb2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(120px, -120px) scale(0.9);
+  }
+}
+
+/* Eyebrow badge styling */
+.eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(9, 11, 20, 0.12);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+  margin-bottom: 2rem;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-cyan);
+  border-radius: 50%;
+  display: block;
+  box-shadow: 0 0 10px rgba(8, 145, 178, 0.4);
+  animation: blink 2s infinite ease-in-out;
+}
+
+.badge-text {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* Sections Structure Setup */
+.page-view {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.section-padding {
+  padding: 10rem 0 6rem 0;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 7rem 0 4rem 0;
+  }
+}
+
+/* Hero title is handled fully in hero.css */
+
+
+/* Floating Chat Bubble Widget Style */
+.floating-chat-widget {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(9, 11, 20, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: var(--transition-smooth);
+  border: 1px solid rgba(9, 11, 20, 0.05);
+  color: #090b14;
+}
+
+.floating-chat-widget:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 15px 35px rgba(9, 11, 20, 0.1);
+}
+
+.chat-notification-dot {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 10px;
+  height: 10px;
+  background-color: #ff5500; /* Vibrant notification orange */
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
